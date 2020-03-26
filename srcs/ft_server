@@ -1,0 +1,15 @@
+server {
+	listen 80;
+	listen [::]:80;
+	listen 8080;
+	listen [::]:8080;
+
+	root /var/www/ft_server/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name localhost www.localhost;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
