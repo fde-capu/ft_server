@@ -13,4 +13,4 @@ This project is a Dockerfile that builds an debian:buster container...
 - phpMyAdmin
 - MySQL
 
-I am sorry if you stumbled uppon this while is still under development.
+I am sorry if you stumbled uppon while it is still under development.
