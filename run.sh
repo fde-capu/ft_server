@@ -16,5 +16,5 @@ docker run -d -p 8080:80 -p 8081:443 -p 443:443 \
 	--name ft_container ft_server
 
 # Just for verbose sake
-docker logs ft_container
 docker ps
+docker logs ft_container
