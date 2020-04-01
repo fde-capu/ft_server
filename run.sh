@@ -5,4 +5,4 @@ openssl req -new -x509 -days 365 \
 	-keyout srcs/localhost.key \
 	-out srcs/localhost.crt
 docker build -t ft_server .
-docker run -d -p 8080:80 -p 8081:443 --name ft_container ft_server
+docker run -d -p 8080:80 --name ft_container ft_server
