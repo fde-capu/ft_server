@@ -11,7 +11,7 @@ openssl req -new -x509 -days 365 \
 docker build -t ft_server .
 
 # Run container
-docker run -d -p 8080:80 -p 8081:443 -p 443:443 \
+docker run -d -p 80:80 -p 443:443 \
 	-v "/$(pwd)/srcs/autoindex:/var/www/ft_server/html/autoindex" \
 	--name ft_container ft_server
 
