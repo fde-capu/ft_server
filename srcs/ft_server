@@ -1,19 +1,19 @@
 server {
 	listen 80;
 	listen [::]:80;
-	listen 8080;
-	listen [::]:8080;
+	server_name localhost;
+	return 301 https://$host$request_uri;
+}
 
-	server_name localhost www.localhost;
-
-	listen 443 ssl;
-	listen [::]:443 ssl;
+server {
+	listen 443;
+	listen [::]:443;
+	listen 80;
+	listen [::]:80;
+	server_name localhost;
 	ssl on;
 	ssl_certificate		/etc/ssl/certs/localhost.crt;
 	ssl_certificate_key	/etc/ssl/certs/localhost.key;
 	root /var/www/ft_server/html;
 	index index.html index.htm;
-	location / {
-		autoindex on;
-	}
 }
