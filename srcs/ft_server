@@ -4,12 +4,16 @@ server {
 	listen 8080;
 	listen [::]:8080;
 
-	root /var/www/ft_server/html;
-	index index.html index.htm index.nginx-debian.html;
-
 	server_name localhost www.localhost;
 
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	ssl on;
+	ssl_certificate		/etc/ssl/certs/localhost.crt;
+	ssl_certificate_key	/etc/ssl/certs/localhost.key;
+	root /var/www/ft_server/html;
+	index index.html index.htm;
 	location / {
-		try_files $uri $uri/ =404;
+		autoindex on;
 	}
 }
