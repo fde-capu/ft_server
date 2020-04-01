@@ -13,7 +13,7 @@ CMD srcs/server_init.sh
 # ssl
 COPY srcs/localhost.key /etc/ssl/certs/
 COPY srcs/localhost.crt /etc/ssl/certs/
-#RUN chmod 600 /etc/ssl/certs/localhost*
+RUN chmod 600 /etc/ssl/certs/localhost*
 
 # open ports
 EXPOSE 80 433
