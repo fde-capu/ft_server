@@ -6,3 +6,6 @@ Debated my code with squad.
 Thu 02 Apr 2020 05:08:12 PM -03
 Reviewd coleagues codes.
 Made a 'retake' script; commits a container!
+
+Fri 03 Apr 2020 03:46:58 AM -03
+Installed (finally) MariaDB

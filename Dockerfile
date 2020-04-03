@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
+#    Updated: 2020/04/03 03:46:09 by fde-capu         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FROM debian:buster
 MAINTAINER fde-capu
 RUN apt-get update
@@ -11,21 +23,20 @@ COPY srcs/index.html /var/www/ft_server/html/index.html
 COPY srcs/ft_server /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/ft_server /etc/nginx/sites-enabled
 
-# ssl
-COPY srcs/localhost.key /etc/ssl/certs/
-COPY srcs/localhost.crt /etc/ssl/certs/
+# SSL
+COPY srcs/localhost.* /etc/ssl/certs/
 RUN chmod 600 /etc/ssl/certs/localhost*
 
-# MySQL
-#RUN apt-get install mariadb-server -y
+# MySQL / MariaDB
+RUN apt-get install mariadb-server -y
 
 # PHP
 
 # WordPress
 
-# open ports
+# tell users that these ports are in use
 EXPOSE 80 443
 
 # start services
-CMD ["nginx", "-g", "daemon off;"]
-#CMD ["mysql",  "start"]
+COPY srcs/start_ft_server.sh /
+CMD ["bash", "/start_ft_server.sh"]
