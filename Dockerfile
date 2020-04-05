@@ -6,15 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/04 20:34:53 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/04 21:06:52 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
 MAINTAINER fde-capu
 
-RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
 # nginx
 RUN apt-get install nginx -y
@@ -31,6 +31,7 @@ RUN chmod 600 /etc/ssl/certs/localhost*
 # MySQL / MariaDB
 RUN apt-get install mariadb-server -y
 COPY srcs/my.cnf ~/.my.cnf
+# depois cadê o arquivo?
 
 # PHP
 
