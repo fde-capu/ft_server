@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cd ..
 # Generate a self signed SSL certificate
 openssl req -new -x509 -days 365 \
 	-newkey rsa:2048 -nodes \
