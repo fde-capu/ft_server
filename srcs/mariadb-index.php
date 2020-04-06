@@ -10,7 +10,7 @@ $link = mysqli_connect('localhost', 'ft_user', 'passwd42sp', 'ft_db');
 if (!$link) {
     die('Could not connect: ' . mysqli_connect_errno());
 }
-printf("MariaDB/MySQL host info: %s\n", mysqli_get_host_info($list));
+printf("MariaDB/MySQL host info: %s\n", mysqli_get_host_info($link));
 mysql_close($link);
 ?>
 <hr>
