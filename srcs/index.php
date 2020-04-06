@@ -1,5 +1,5 @@
 <html>
 <body>
-<?php echo 'This is a PHP echo.'; ?>'
+<?php echo 'PHP is executing Common Gateway Interface.'; ?>'
 </body>
 </html>
