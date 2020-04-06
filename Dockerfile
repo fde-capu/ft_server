@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 15:13:19 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 18:26:17 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ COPY srcs/localhost.* /etc/ssl/certs/
 RUN chmod 600 /etc/ssl/certs/localhost*
 
 # PHP
-RUN apt-get install php php-fpm -y
+RUN apt-get install php php-fpm php-mysql -y
 RUN mkdir -p /var/www/ft_server/html/php
 COPY srcs/index.php /var/www/ft_server/html/php/index.php
 
@@ -39,7 +39,7 @@ COPY srcs/index.php /var/www/ft_server/html/php/index.php
 RUN apt-get install mariadb-server mariadb-client -y
 #COPY srcs/my.cnf /root/.my.cnf
 RUN mkdir -p /var/www/ft_server/html/mariadb
-COPY srcs/mariadb-index.html /var/www/ft_server/html/mariadb/index.php
+COPY srcs/mariadb-index.php /var/www/ft_server/html/mariadb/index.php
 
 # PHPMyAdmin
 
