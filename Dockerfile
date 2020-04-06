@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 13:43:08 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 13:51:34 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,8 @@ COPY srcs/my.cnf /root/.my.cnf
 
 # PHP
 RUN apt-get install php php-fpm -y
-RUN mkdir -p /var/www/ft_server/php
-COPY srcs/index.php /var/www/ft_server/php
+RUN mkdir -p /var/www/ft_server/html/php
+COPY srcs/index.php /var/www/ft_server/html/php/index.php
 # PHPMyAdmin
 
 # WordPress
