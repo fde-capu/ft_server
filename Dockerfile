@@ -6,12 +6,12 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 13:29:23 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 13:31:46 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
-LABEL fde-capu
+LABEL maintainer=fde-capu
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
