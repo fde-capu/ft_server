@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 13:51:34 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 14:03:30 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,16 +32,17 @@ RUN chmod 600 /etc/ssl/certs/localhost*
 
 # MySQL / MariaDB
 RUN apt-get install mariadb-server mariadb-client -y
-COPY srcs/my.cnf /root/.my.cnf
+#COPY srcs/my.cnf /root/.my.cnf
 
 # PHP
 RUN apt-get install php php-fpm -y
 RUN mkdir -p /var/www/ft_server/html/php
 COPY srcs/index.php /var/www/ft_server/html/php/index.php
+
 # PHPMyAdmin
 
 # WordPress
-RUN apt-get install wordpress -y
+#RUN apt-get install wordpress -y
 
 # tell users that these ports are in use
 EXPOSE 80 443
