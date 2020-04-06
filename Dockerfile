@@ -6,14 +6,16 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/04 21:06:52 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 13:25:37 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
-MAINTAINER fde-capu
+LABEL fde-capu
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
+RUN apt-get install apt-utils -y
 RUN apt-get upgrade -y
 
 # nginx
@@ -29,13 +31,15 @@ COPY srcs/localhost.* /etc/ssl/certs/
 RUN chmod 600 /etc/ssl/certs/localhost*
 
 # MySQL / MariaDB
-RUN apt-get install mariadb-server -y
-COPY srcs/my.cnf ~/.my.cnf
-# depois cadê o arquivo?
+RUN apt-get install mariadb-server mariadb-client -y
+COPY srcs/my.cnf /root/.my.cnf
 
 # PHP
+RUN apt-get install php php-fpm -y
+# PHPMyAdmin
 
 # WordPress
+RUN apt-get install wordpress -y
 
 # tell users that these ports are in use
 EXPOSE 80 443

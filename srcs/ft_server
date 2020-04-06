@@ -15,5 +15,12 @@ server {
 		autoindex on;
 	}
 	root /var/www/ft_server/html;
-	index index.html index.htm;
+	index index.html index.htm index.php;
+	location ~ \.php$ {
+		try_files $uri =404;
+		fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+		fastcgi_index index.php;
+		include /etc/nginx/fastcgi_params;
+# o que ocorre se não incluir
+	}
 }
