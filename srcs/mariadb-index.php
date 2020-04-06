@@ -5,7 +5,7 @@ This is a test for MariaDB.<br>
 It is implicit that PHP is running.<br>
 <hr>
 <?php
-
+echo("Yes, it runs.<br>");
 $link = mysqli_connect('localhost', 'ft_user', 'passwd42sp', 'ft_db');
 if (!$link) {
     die('Could not connect: ' . mysql_error());
