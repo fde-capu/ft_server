@@ -13,11 +13,11 @@ server {
 	ssl_certificate_key /etc/ssl/certs/localhost.key;
 	location / {
 		autoindex on;
-		try_files $uri =404;
 	}
 	root /var/www/ft_server/html;
 	index index.html index.htm index.php;
 	location ~ \.php$ {
+		try_files $uri =404;
 		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
 		include /etc/nginx/fastcgi.conf;
 	}
