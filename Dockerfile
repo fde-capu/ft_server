@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 13:25:37 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 13:29:23 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,4 +46,4 @@ EXPOSE 80 443
 
 # start services
 COPY srcs/start_ft_server.sh /
-CMD ["bash", "/start_ft_server.sh"]
+ENTRYPOINT ["bash", "/start_ft_server.sh"]
