@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 22:20:47 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 22:22:50 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,6 @@ COPY srcs/index.php /var/www/ft_server/html/php/index.php
 
 # MySQL / MariaDB
 RUN apt-get install mariadb-server mariadb-client -y
-#COPY srcs/my.cnf /root/.my.cnf
-#RUN chmod 600 /root/.my.cnf
 RUN mkdir -p /var/www/ft_server/html/mariadb
 COPY srcs/mariadb-index.php /var/www/ft_server/html/mariadb/index.php
 
