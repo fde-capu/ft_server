@@ -6,16 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 18:26:17 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/06 22:05:24 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
 LABEL maintainer=fde-capu
 
-ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
-RUN apt-get install apt-utils -y
+RUN apt-get install apt-utils vim procps -y
 RUN apt-get upgrade -y
 
 # nginx
@@ -37,7 +36,8 @@ COPY srcs/index.php /var/www/ft_server/html/php/index.php
 
 # MySQL / MariaDB
 RUN apt-get install mariadb-server mariadb-client -y
-#COPY srcs/my.cnf /root/.my.cnf
+COPY srcs/my.cnf /root/.my.cnf
+RUN chmod 600 /root/.my.cnf
 RUN mkdir -p /var/www/ft_server/html/mariadb
 COPY srcs/mariadb-index.php /var/www/ft_server/html/mariadb/index.php
 
