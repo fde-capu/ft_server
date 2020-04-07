@@ -9,17 +9,14 @@ FT_SERVER
 This project is a Dockerfile that builds an debian:buster container...
 ...containing:
 
-- SSL
 - nginx
-- autoindex
+- SSL
+- PHP
+- MariaDB
 - phpMyAdmin
-- MySQL
-
-*I am sorry if you stumbled uppon while it is still under development.*
+- WordPress
 
 Usage:
-Build: Just hit `run`.
+Build: `./srcs/docker-controls/run.sh`.
 
-Access:
-Normal 80 request: `http://localhost:8080/`
-SSL 443 request: `https://localhost:8081/`
+Autoindex can be enabled and disabled by script. 
