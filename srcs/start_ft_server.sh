@@ -35,6 +35,12 @@ mysql -e "USE ft_db; \
 	CREATE TABLE squad (name VARCHAR(20), id42 VARCHAR(20)); \
 	INSERT INTO squad (name, id42) VALUES ('Caio Vinícius','csouza-f'), ('Flávio','fde-capu'), ('Mariana','msoares'), ('Miguel','mtaiar-s');"
 
+# setup phpmyadmin
+mkdir -p /var/www/ft_server/html/phpmyadmin
+wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.gz
+
+
+
 # configure php-fpm
 #echo "
 # [$var_userdomain]

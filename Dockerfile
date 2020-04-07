@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/06 22:22:50 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/07 13:25:14 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LABEL maintainer=fde-capu
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
-RUN apt-get install apt-utils vim procps -y
+RUN apt-get install apt-utils vim procps wget -y
 RUN apt-get upgrade -y
 
 # nginx
@@ -41,6 +41,9 @@ RUN mkdir -p /var/www/ft_server/html/mariadb
 COPY srcs/mariadb-index.php /var/www/ft_server/html/mariadb/index.php
 
 # PHPMyAdmin
+RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.gz
+RUN mkdir -p /var/www/ft_server/html/phpmyadmin
+RUN tar -xf phpMyAdmin-latest-english.tar.gz --strip=1 -C /var/www/ft_server/html/phpmyadmin
 
 # WordPress
 #RUN apt-get install wordpress -y
