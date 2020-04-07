@@ -78,6 +78,9 @@ mysql -e "USE ft_db; \
 # require_once(ABSPATH . 'wp-settings.php');
 #" > /var/www/ft_server/html$var_pathtowordpress/wp-config.php;
 
+# security issues
+chown -R www-data /var/www/*
+chmod -R 755 /var/www/*
 # erase this sensible file
 rm ./start_ft_server.sh
 # read reverse fixedly from null void (keeps container alive!)
