@@ -1,0 +1,43 @@
+#! /bin/bash
+
+OK="false";
+CONFIG_FILE=/etc/nginx/sites-available/ft_server;
+if [ "$1" == "x" ] || [ "$1" == "flip" ] || [ "$1" == "i" ] || [ "$1" == "invert" ]
+then
+	OK="true";
+	OLD_VALUE=`sed -n 's/autoindex *\(.*\) *;/\1/p' $CONFIG_FILE`;
+	if [ $OLD_VALUE == on ]
+	then
+		NEW_VALUE='off';
+	else
+		NEW_VALUE='on';
+	fi
+fi
+if [ "$1" == "on" ]
+then
+	OK="true";
+	NEW_VALUE=on;
+fi
+if [ "$1" == "off" ]
+then
+	OK="true";
+	NEW_VALUE=off;
+fi
+if [ $OK == "true" ]
+then
+	sed -i "s/autoindex.*/autoindex $NEW_VALUE;/g" $CONFIG_FILE;
+	echo "$CONFIG_FILE
+	autoindex $NEW_VALUE;";
+	service nginx restart;
+	exit;
+fi
+echo "USAGE: autoindex [OPTION]
+
+  x, flip, i, invert
+	If it is on, turns off; if it is off, turns on.
+  on
+	Switch on.
+  off
+	Switche off.
+This programs only runs over $CONFIG_FILE.
+Maintainer: <fde-capu@student.42sp.org.br>.";
