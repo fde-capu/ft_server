@@ -19,8 +19,7 @@ var_userdomain="localhost"
 var_userpassword="passwd42sp"
 var_pathtowordpress="/wordpress"
 
-#service nginx start
-bash /usr/bin/autoindex on
+service nginx start
 service mysql start
 service $(find /etc/init.d -name 'php*' | sed 's/.*\///') start
 
