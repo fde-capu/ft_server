@@ -13,7 +13,7 @@ docker build -t ft_server .
 
 # Run container
 docker run -d -p 80:80 -p 443:443 \
-	-v "/$(pwd)/srcs/autoindex:/var/www/ft_server/html/autoindex" \
+	-v "/$(pwd)/srcs/autoindex_folder:/var/www/ft_server/html/autoindex" \
 	--name ft_container ft_server
 
 # Just for verbose sake

@@ -19,7 +19,8 @@ var_userdomain="localhost"
 var_userpassword="passwd42sp"
 var_pathtowordpress="/wordpress"
 
-service nginx start
+#service nginx start
+bash /usr/bin/autoindex on
 service mysql start
 service $(find /etc/init.d -name 'php*' | sed 's/.*\///') start
 
@@ -48,7 +49,7 @@ echo "
  define('SECURE_AUTH_KEY',	'////|||| lines ----____....||||');
  define('LOGGED_IN_KEY',	'----////---- can be ...||||////');
  define('NONCE_KEY',		'____----****^^^^ literally ----');
- define('AUTH_SALT',		'.... anything ....////||||////-');
+ define('AUTH_SALT',		'.... anything .... any size ..-');
  define('SECURE_AUTH_SALT', '_______ Change these lines ____');
  define('LOGGED_IN_SALT',	'__ to reset all user sessions _');
  define('NONCE_SALT',		'|||||||||||||||||||||||||||||||');

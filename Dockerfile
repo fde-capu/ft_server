@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/07 13:57:36 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/07 16:22:42 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ RUN rm -f /etc/nginx/sites-enabled/default
 COPY srcs/index.html /var/www/ft_server/html/index.html
 COPY srcs/ft_server /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/ft_server /etc/nginx/sites-enabled
+COPY srcs/autoindex /usr/bin
+RUN chmod +x /usr/bin/autoindex
 
 # SSL
 COPY srcs/localhost.* /etc/ssl/certs/
