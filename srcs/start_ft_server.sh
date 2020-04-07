@@ -30,6 +30,7 @@ mysql -e "CREATE USER '$var_username'@'$var_userdomain' IDENTIFIED BY '$var_user
 mysql -e "GRANT ALL PRIVILEGES ON $var_dbname.* TO '$var_username'@'$var_userdomain'"
 mysql -e "FLUSH PRIVILEGES"
 
+# comment lines below if you don't want to feed ft_db with test values
 mysql -e "USE ft_db; \
 	CREATE TABLE squad (name VARCHAR(20), id42 VARCHAR(20)); \
 	INSERT INTO squad (name, id42) VALUES ('Caio Vinícius','csouza-f'), ('Flávio','fde-capu'), ('Mariana','msoares'), ('Miguel','mtaiar-s');"
