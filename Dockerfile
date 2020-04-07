@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/07 13:25:14 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/07 13:57:36 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ RUN mkdir -p /var/www/ft_server/html/phpmyadmin
 RUN tar -xf phpMyAdmin-latest-english.tar.gz --strip=1 -C /var/www/ft_server/html/phpmyadmin
 
 # WordPress
-#RUN apt-get install wordpress -y
+RUN wget wordpress.org/latest.tar.gz
+RUN tar -xf latest.tar.gz -C /var/www/ft_server/html
 
 # tell users that these ports are in use
 EXPOSE 80 443
