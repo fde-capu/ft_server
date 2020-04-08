@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd ../..
+cd ../.. # VERIFY THIS LINE
 # Generate a self signed SSL certificate
 openssl req -new -x509 -days 365 \
 	-newkey rsa:2048 -nodes \
