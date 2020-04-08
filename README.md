@@ -17,6 +17,7 @@ This project is a Dockerfile that builds an debian:buster container...
 - WordPress
 
 Usage:
-Build: `./srcs/docker-controls/run.sh`.
+Goto: `cd srcs/docker-controls`
+Build: `run.sh`.
 
 Autoindex can be enabled and disabled by script. 
