@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/02 16:42:30 by fde-capu          #+#    #+#              #
-#    Updated: 2020/04/07 16:22:42 by fde-capu         ###   ########.fr        #
+#    Updated: 2020/04/08 01:22:36 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ RUN mkdir -p /var/www/ft_server/html/mariadb
 COPY srcs/mariadb-index.php /var/www/ft_server/html/mariadb/index.php
 
 # PHPMyAdmin
+RUN apt-get install php-mbstring php-bz2 php-zip -y
 RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.gz
 RUN mkdir -p /var/www/ft_server/html/phpmyadmin
 RUN tar -xf phpMyAdmin-latest-english.tar.gz --strip=1 -C /var/www/ft_server/html/phpmyadmin

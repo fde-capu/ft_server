@@ -18,6 +18,7 @@ var_username="ft_user"
 var_userdomain="localhost"
 var_userpassword="passwd42sp"
 var_pathtowordpress="/wordpress"
+randomBlowfishSecret=$(openssl rand -base64 32)
 
 service nginx start
 service mysql start
@@ -38,6 +39,7 @@ mysql -e "FLUSH PRIVILEGES"
 # configure PHPMyAdmin
 mysql -e "GRANT SELECT, INSERT, UPDATE, DELETE ON phpmyadmin.* TO '$var_username'@'$var_userdomain'"
 mysql -e "FLUSH PRIVILEGES"
+sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" /var/www/ft_server/html/phpmyadmin/config.sample.inc.php > /var/www/ft_server/html/phpmyadmin/config.inc.php
 mysql < /var/www/ft_server/html/phpmyadmin/sql/create_tables.sql
 
 # configure WordPress
@@ -69,8 +71,10 @@ echo "
 " > /var/www/ft_server/html$var_pathtowordpress/wp-config.php;
 
 # security issues
-chown -R www-data /var/www/*
+mkdir -p /var/www/ft_server/html/phpmyadmin/tmp
+chown -R www-data:www-data /var/www/*
 chmod -R 755 /var/www/*
+chmod -R 700 /var/www/ft_server/html/phpmyadmin/tmp
 # erase this sensible file
 rm ./start_ft_server.sh
 # read reverse fixedly from null void (keeps container alive!)
