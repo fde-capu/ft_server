@@ -1,0 +1,1 @@
+switch_autoindex (from outside).sh
