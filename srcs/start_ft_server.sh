@@ -31,9 +31,14 @@ mysql -e "GRANT ALL PRIVILEGES ON $var_dbname.* TO '$var_username'@'$var_userdom
 mysql -e "FLUSH PRIVILEGES"
 
 # comment lines below if you don't want to feed ft_db with test values
-mysql -e "USE ft_db; \
-	CREATE TABLE squad (name VARCHAR(20), id42 VARCHAR(20)); \
-	INSERT INTO squad (name, id42) VALUES ('Caio Vinícius','csouza-f'), ('Flávio','fde-capu'), ('Mariana','msoares'), ('Miguel','mtaiar-s');"
+#mysql -e "USE ft_db; \
+#	CREATE TABLE squad (name VARCHAR(20), id42 VARCHAR(20)); \
+#	INSERT INTO squad (name, id42) VALUES ('Caio Vinícius','csouza-f'), ('Flávio','fde-capu'), ('Mariana','msoares'), ('Miguel','mtaiar-s');"
+
+# configure PHPMyAdmin
+mysql -e "GRANT SELECT, INSERT, UPDATE, DELETE ON phpmyadmin.* TO '$var_username'@'$var_userdomain'"
+mysql -e "FLUSH PRIVILEGES"
+mysql < /var/www/ft_server/html/phpmyadmin/sql/create_tables.sql
 
 # configure WordPress
 echo "
