@@ -26,10 +26,6 @@ service $(find /etc/init.d -name 'php*' | sed 's/.*\///') start
 
 # configure MariaDB
 mysql -e "UPDATE mysql.user SET PASSWORD('$var_rootpassword') WHERE User = 'root'"
-mysql -e "CREATE DATABASE $var_dbname"
-mysql -e "CREATE USER '$var_username'@'$var_userdomain' IDENTIFIED BY '$var_userpassword'"
-mysql -e "GRANT ALL PRIVILEGES ON $var_dbname.* TO '$var_username'@'$var_userdomain'"
-mysql -e "FLUSH PRIVILEGES"
 
 # comment lines below if you don't want to feed ft_db with test values
 #mysql -e "USE ft_db; \
@@ -43,6 +39,10 @@ sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfis
 mysql < /var/www/ft_server/html/phpmyadmin/sql/create_tables.sql
 
 # configure WordPress
+mysql -e "CREATE DATABASE $var_dbname"
+mysql -e "CREATE USER '$var_username'@'$var_userdomain' IDENTIFIED BY '$var_userpassword'"
+mysql -e "GRANT ALL PRIVILEGES ON $var_dbname.* TO '$var_username'@'$var_userdomain'"
+mysql -e "FLUSH PRIVILEGES"
 echo "
  <?php
  define('DB_NAME', '$var_dbname');
