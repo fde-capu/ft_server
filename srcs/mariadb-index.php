@@ -16,7 +16,7 @@ printf("MariaDB/MySQL host info: %s\n", mysqli_get_host_info($link));
 Test ft_db:<br>
 <?php
 $connection = "SELECT name, id42 FROM squad";
-$result = mysqli_query($link, $connection);;
+$result = mysqli_query($link, $connection);
 if (mysqli_num_rows($result) > 0)
 {
 	echo "<table>";

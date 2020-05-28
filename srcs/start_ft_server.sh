@@ -27,11 +27,6 @@ service $(find /etc/init.d -name 'php*' | sed 's/.*\///') start
 # configure MariaDB
 mysql -e "UPDATE mysql.user SET PASSWORD('$var_rootpassword') WHERE User = 'root'"
 
-# comment lines below if you don't want to feed ft_db with test values
-#mysql -e "USE ft_db; \
-#	CREATE TABLE squad (name VARCHAR(20), id42 VARCHAR(20)); \
-#	INSERT INTO squad (name, id42) VALUES ('Caio Vinícius','csouza-f'), ('Flávio','fde-capu'), ('Mariana','msoares'), ('Miguel','mtaiar-s');"
-
 # configure PHPMyAdmin
 mysql -e "GRANT SELECT, INSERT, UPDATE, DELETE ON phpmyadmin.* TO '$var_username'@'$var_userdomain'"
 mysql -e "FLUSH PRIVILEGES"
@@ -75,7 +70,14 @@ mkdir -p /var/www/ft_server/html/phpmyadmin/tmp
 chown -R www-data:www-data /var/www/*
 chmod -R 755 /var/www/*
 chmod -R 700 /var/www/ft_server/html/phpmyadmin/tmp
-# erase this sensible file
-rm ./start_ft_server.sh
+
+# comment lines below if you don't want to feed ft_db with test values
+mysql -e "USE ft_db;"
+mysql -e "CREATE TABLE squad (name VARCHAR(20), id42 VARCHAR(20));"
+mysql -e "INSERT INTO squad (name, id42) VALUES ('Caio Vinicius','csouza-f'), ('Flavio','fde-capu'), ('Mariana','msoares'), ('Miguel','mtaiar-s');"
+
+# maybe you want to erase this sensible file
+# rm ./start_ft_server.sh
+
 # read reverse fixedly from null void (keeps container alive!)
 tail -f /dev/null
