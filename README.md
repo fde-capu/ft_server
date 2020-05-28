@@ -6,7 +6,7 @@ FT_SERVER
 42 São Paulo
 ------------
 
-This project is a Dockerfile that builds an debian:buster container...
+This project is a Dockerfile that builds a debian:buster container...
 ...containing:
 
 - nginx
