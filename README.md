@@ -18,12 +18,11 @@ Before Usage:
 -------------
 
 Create a docker group and add your user to the docker group:
-`
-sudo groupadd docker
-sudo usermod -aG docker ${USER}
-su -s ${USER}
-docker run hello-world
-`
+
+    sudo groupadd docker
+    sudo usermod -aG docker ${USER}
+    su -s ${USER}
+    docker run hello-world
 
 Check and disable in case ports 80 and 443 are already in use (`service nginx stop` or any other running server).
 
@@ -48,7 +47,7 @@ Other docker-controls commands:
 
 Autoindex can be enabled and disabled by script. 
 
-
+---
 
 *this project is part of the 42 São Paulo cursus*
 
